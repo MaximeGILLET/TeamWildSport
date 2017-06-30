@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Facebook;
+using System.Configuration;
 
 namespace TeamWildSport.Controllers
 {
@@ -25,6 +27,15 @@ namespace TeamWildSport.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Events()
+        {
+
+            var client = new FacebookClient();
+            client.AppId = ConfigurationManager.AppSettings["FbAppId"];
+            client.AppSecret = ConfigurationManager.AppSettings["FbAppSecret"];
             return View();
         }
     }
