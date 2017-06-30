@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using TeamWildSport.Models;
+using System.Configuration;
 
 namespace TeamWildSport
 {
@@ -54,9 +55,9 @@ namespace TeamWildSport
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: ConfigurationManager.AppSettings["fbAppId"],
+               appSecret: ConfigurationManager.AppSettings["fbAppSecret"]);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
